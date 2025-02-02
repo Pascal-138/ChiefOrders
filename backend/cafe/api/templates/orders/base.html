@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Кафе</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'order_list' %}">Заказы</a> |
+        <a href="{% url 'order_add' %}">Добавить заказ</a> |
+        <a href="{% url 'order_search' %}">Поиск</a> |
+        <a href="{% url 'revenue_for_shift' %}">Выручка</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

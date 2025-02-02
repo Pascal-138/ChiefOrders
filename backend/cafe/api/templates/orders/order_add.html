@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Добавить заказ</h2>
+{% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="table_number">Номер стола:</label>
+        <input type="text" name="table_number" id="table_number" value="{{ table_number|default_if_none:'' }}" required><br><br>
+
+        <label for="items">Блюда (JSON):</label>
+        <textarea name="items" id="items" required>{{ items|default_if_none:'' }}</textarea><br>
+        <small>Формат: [{"name": "Суп", "price": 200}, {"name": "Салат", "price": 150}]</small><br><br>
+
+        <button type="submit">Добавить заказ</button>
+    </form>
+{% endblock %}
